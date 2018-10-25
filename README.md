@@ -1,6 +1,6 @@
-# `@rehooks/online-offline`
+# `@rehooks/network-status`
 
-> React hook for OnlineOffline
+> React hook for getting network-status
 
 > **Note:** This is using the new [React Hooks API Proposal](https://reactjs.org/docs/hooks-intro.html)
 > which is subject to change until React 16.7 final.
@@ -10,16 +10,23 @@
 ## Install
 
 ```sh
-yarn add @rehooks/online-offline
+yarn add @rehooks/network-status
 ```
 
 ## Usage
 
 ```js
-import useOnlineOffline from "@rehooks/online-offline";
+import useNetworkStatus from "@rehooks/network-status";
 
 function MyComponent() {
-  let isOnline = useOnlineOffline();
-  return <div>{isOnline ? <span>yes we are online</span> : <span>Sorry, Disconnected</span>}</div>;
+  let connection = useNetworkStatus();
+  return (
+    <div>
+      <div>downlink: {connection.downlink}</div>
+      <div>effectiveType: {connection.effectiveType}</div>
+      <div>rtt: {connection.rtt}</div>
+      <div>saveData: {connection.saveData ? "yes" : "no"}</div>
+    </div>
+  );
 }
 ```

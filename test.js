@@ -10,11 +10,11 @@ function render(val) {
 
 test(t => {
   function Component() {
-    let value = useOnlineOffline();
+    let value = useNetworkStatus();
     return h('div');
   }
 
   let input = render(h(Component));
 
-  t.is(input.toJSON().props.value, 'OnlineOffline');
+  t.is(input.toJSON().props.value, 'NetworkStatus');
 });

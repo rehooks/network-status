@@ -1,9 +1,9 @@
 {
-  "name": "@rehooks/online-offline",
+  "name": "@rehooks/network-status",
   "version": "1.0.0",
-  "description": "React hook to track online offline network toggle",
+  "description": "React hook to track Network status",
   "main": "index.js",
-  "repository": "https://github.com/rehooks/online-offline",
+  "repository": "https://github.com/rehooks/network-status",
   "author": "Amit Solanki <amit.fash@gmail.com>",
   "license": "MIT",
   "publishConfig": {
@@ -12,7 +12,7 @@
   "keywords": [
     "react",
     "hooks",
-    "OnlineOffline"
+    "network-status"
   ],
   "files": [
     "index.*"

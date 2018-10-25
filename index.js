@@ -1,26 +1,24 @@
 "use strict";
 let { useState, useEffect } = require("react");
 
-function getNetworkState() {
-  return navigator.onLine;
+function getConnection() {
+  return navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 }
 
-function useOnlineOffline() {
-  let [isOnline, setIsOnline] = useState(getNetworkState());
+function useNetworkStatus() {
+  let [connection, updateNetworkConnection] = useState(getConnection());
 
-  function handleNetworkChange() {
-    setIsOnline(getNetworkState());
+  function updateConnectionStatus() {
+    updateNetworkConnection(getConnection());
   }
   useEffect(() => {
-    window.addEventListener("online", handleNetworkChange);
-    window.addEventListener("offline", handleNetworkChange);
+    connection.addEventListener("change", updateConnectionStatus);
     return () => {
-      window.removeEventListener("online", handleNetworkChange);
-      window.removeEventListener("offline", handleNetworkChange);
+      connection.removeEventListener("change", updateConnectionStatus);
     };
   });
 
-  return isOnline;
+  return connection;
 }
 
-module.exports = useOnlineOffline;
+module.exports = useNetworkStatus;

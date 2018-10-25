@@ -1,3 +1,9 @@
-type NetworkState = true | false;
+interface NetworkState {
+  downlink: float;
+  downlinkMax: float;
+  effectiveType: "slow-2g" | "2g" | "3g" | "4g";
+  rtt: integer;
+  type: "bluetooth" | "cellular" | "ethernet" | "none" | "wifi" | "wimax" | "other" | "unknown";
+}
 
-declare export default function useOnlineOffline(): NetworkState;
+declare function useNetworkStatus(): NetworkState;
