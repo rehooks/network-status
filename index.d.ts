@@ -1,9 +1,9 @@
 interface NetworkState {
-  downlink: float;
-  downlinkMax: float;
+  downlink: number;
+  downlinkMax: number;
   effectiveType: "slow-2g" | "2g" | "3g" | "4g";
-  rtt: integer;
+  rtt: number;
   type: "bluetooth" | "cellular" | "ethernet" | "none" | "wifi" | "wimax" | "other" | "unknown";
 }
 
-declare function useNetworkStatus(): NetworkState;
+export default function useNetworkStatus(): NetworkState;
