@@ -1,5 +1,5 @@
 "use strict";
-let { useState } = require("react");
+let { useState, useEffect } = require("react");
 
 function getNetworkState() {
   return navigator.onLine;
