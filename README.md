@@ -1,4 +1,4 @@
-# `@rehooks/OnlineOffline`
+# `@rehooks/online-offline`
 
 > React hook for OnlineOffline
 
@@ -10,17 +10,16 @@
 ## Install
 
 ```sh
-yarn add @rehooks/OnlineOffline
+yarn add @rehooks/online-offline
 ```
 
 ## Usage
 
 ```js
-import useOnlineOffline from '@rehooks/OnlineOffline';
+import useOnlineOffline from "@rehooks/online-offline";
 
 function MyComponent() {
-  let value = useOnlineOffline();
-  // value == OnlineOffline
-  return <div/>;
+  let isOnline = useOnlineOffline();
+  return <div>{isOnline ? <span>yes we are online</span> : <span>Sorry, Disconnected</span>}</div>;
 }
 ```
