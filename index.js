@@ -16,7 +16,7 @@ function useNetworkStatus() {
     return () => {
       connection.removeEventListener("change", updateConnectionStatus);
     };
-  });
+  }, []);
 
   return connection;
 }
