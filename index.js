@@ -8,15 +8,16 @@ function getConnection() {
 function useNetworkStatus() {
   let [connection, updateNetworkConnection] = useState(getConnection());
 
-  function updateConnectionStatus() {
-    updateNetworkConnection(getConnection());
-  }
   useEffect(() => {
+    function updateConnectionStatus() {
+      updateNetworkConnection(getConnection());
+    }
+
     connection.addEventListener("change", updateConnectionStatus);
     return () => {
       connection.removeEventListener("change", updateConnectionStatus);
     };
-  }, []);
+  }, [connection]);
 
   return connection;
 }
